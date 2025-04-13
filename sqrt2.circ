@@ -23,7 +23,11 @@
       <a name="value" val="0x0"/>
     </tool>
   </lib>
-  <lib desc="#Gates" name="1"/>
+  <lib desc="#Gates" name="1">
+    <tool name="NOT Gate">
+      <a name="facing" val="west"/>
+    </tool>
+  </lib>
   <lib desc="#Base" name="2"/>
   <main name="main"/>
   <options>
@@ -130,7 +134,6 @@
     <a name="circuit" val="sqrt"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="4.0"/>
-    <comp lib="0" loc="(1010,2110)" name="Pull Resistor"/>
     <comp lib="0" loc="(1060,2850)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="IO_DATA_IN"/>
@@ -138,10 +141,7 @@
       <a name="tristate" val="true"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="0" loc="(1080,1170)" name="Pull Resistor">
-      <a name="facing" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1080,1270)" name="Transistor">
+    <comp lib="0" loc="(1080,1270)" name="Transmission Gate">
       <a name="facing" val="north"/>
       <a name="selloc" val="bl"/>
       <a name="width" val="16"/>
@@ -630,10 +630,16 @@
       <a name="in_width" val="24"/>
       <a name="type" val="zero"/>
     </comp>
-    <comp lib="0" loc="(960,2110)" name="Transistor">
+    <comp lib="0" loc="(960,2110)" name="Transmission Gate">
       <a name="width" val="16"/>
     </comp>
+    <comp lib="1" loc="(1000,2170)" name="NOT Gate">
+      <a name="facing" val="west"/>
+    </comp>
     <comp lib="1" loc="(1050,1380)" name="NOT Gate"/>
+    <comp lib="1" loc="(1110,1290)" name="NOT Gate">
+      <a name="facing" val="west"/>
+    </comp>
     <comp lib="1" loc="(1730,1230)" name="NOT Gate"/>
     <comp lib="1" loc="(1730,1750)" name="NOT Gate"/>
     <comp lib="1" loc="(1730,2270)" name="NOT Gate"/>
@@ -666,9 +672,6 @@
     <comp lib="1" loc="(940,1720)" name="AND Gate">
       <a name="facing" val="south"/>
       <a name="negate0" val="true"/>
-    </comp>
-    <comp lib="1" loc="(940,2090)" name="OR Gate">
-      <a name="facing" val="south"/>
     </comp>
     <comp lib="1" loc="(950,1060)" name="AND Gate">
       <a name="facing" val="north"/>
@@ -741,18 +744,20 @@
     <comp loc="(760,1560)" name="d_trigger"/>
     <comp loc="(830,1430)" name="comparator_24bit"/>
     <comp loc="(860,2110)" name="if_expression"/>
-    <wire from="(1010,2110)" to="(1100,2110)"/>
+    <wire from="(1030,2060)" to="(1030,2170)"/>
     <wire from="(1040,1230)" to="(1040,1290)"/>
-    <wire from="(1040,1230)" to="(1370,1230)"/>
+    <wire from="(1040,1230)" to="(1140,1230)"/>
     <wire from="(1040,1290)" to="(1060,1290)"/>
     <wire from="(1050,1380)" to="(1150,1380)"/>
     <wire from="(1060,2850)" to="(1080,2850)"/>
-    <wire from="(1080,1170)" to="(1080,1270)"/>
     <wire from="(1080,1310)" to="(1080,2850)"/>
     <wire from="(1080,2850)" to="(1100,2850)"/>
-    <wire from="(1080,440)" to="(1080,1170)"/>
+    <wire from="(1080,440)" to="(1080,1270)"/>
+    <wire from="(1100,1290)" to="(1110,1290)"/>
     <wire from="(1100,2110)" to="(1100,2850)"/>
     <wire from="(1100,2850)" to="(1110,2850)"/>
+    <wire from="(1140,1230)" to="(1140,1290)"/>
+    <wire from="(1140,1230)" to="(1370,1230)"/>
     <wire from="(1300,440)" to="(1320,440)"/>
     <wire from="(1300,460)" to="(1340,460)"/>
     <wire from="(1300,480)" to="(1370,480)"/>
@@ -1093,13 +1098,16 @@
     <wire from="(870,1310)" to="(870,1360)"/>
     <wire from="(870,1360)" to="(870,1380)"/>
     <wire from="(870,1380)" to="(1020,1380)"/>
-    <wire from="(880,1850)" to="(920,1850)"/>
+    <wire from="(880,1850)" to="(940,1850)"/>
     <wire from="(910,2110)" to="(920,2110)"/>
-    <wire from="(920,1850)" to="(920,2040)"/>
-    <wire from="(920,1850)" to="(940,1850)"/>
     <wire from="(930,1110)" to="(930,1130)"/>
     <wire from="(930,1290)" to="(950,1290)"/>
     <wire from="(940,1720)" to="(940,1850)"/>
+    <wire from="(940,1850)" to="(940,2060)"/>
+    <wire from="(940,2060)" to="(1030,2060)"/>
+    <wire from="(940,2060)" to="(940,2090)"/>
+    <wire from="(940,2130)" to="(940,2170)"/>
+    <wire from="(940,2170)" to="(1000,2170)"/>
     <wire from="(950,1160)" to="(950,1240)"/>
     <wire from="(950,1160)" to="(970,1160)"/>
     <wire from="(950,1270)" to="(950,1290)"/>
@@ -1110,7 +1118,7 @@
     <wire from="(950,920)" to="(1700,920)"/>
     <wire from="(950,920)" to="(950,1060)"/>
     <wire from="(960,1430)" to="(960,1670)"/>
-    <wire from="(960,2110)" to="(1010,2110)"/>
+    <wire from="(960,2110)" to="(1100,2110)"/>
     <wire from="(970,1110)" to="(970,1160)"/>
     <wire from="(990,1210)" to="(990,1340)"/>
     <wire from="(990,1340)" to="(1150,1340)"/>
@@ -2410,16 +2418,12 @@
       <a name="radix" val="16"/>
       <a name="width" val="24"/>
     </comp>
-    <comp lib="0" loc="(400,230)" name="Transistor">
-      <a name="type" val="n"/>
+    <comp lib="0" loc="(400,230)" name="Transmission Gate">
       <a name="width" val="24"/>
     </comp>
-    <comp lib="0" loc="(400,440)" name="Transistor">
-      <a name="type" val="n"/>
+    <comp lib="0" loc="(400,440)" name="Transmission Gate">
+      <a name="selloc" val="bl"/>
       <a name="width" val="24"/>
-    </comp>
-    <comp lib="0" loc="(520,330)" name="Pull Resistor">
-      <a name="pull" val="1"/>
     </comp>
     <comp lib="0" loc="(560,330)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -2430,23 +2434,29 @@
       <a name="tristate" val="true"/>
       <a name="width" val="24"/>
     </comp>
+    <comp lib="1" loc="(170,180)" name="NOT Gate"/>
     <comp lib="1" loc="(380,340)" name="NOT Gate"/>
-    <wire from="(120,190)" to="(120,300)"/>
-    <wire from="(120,190)" to="(380,190)"/>
+    <wire from="(120,180)" to="(120,300)"/>
+    <wire from="(120,180)" to="(140,180)"/>
     <wire from="(120,300)" to="(250,300)"/>
+    <wire from="(170,180)" to="(380,180)"/>
     <wire from="(220,340)" to="(250,340)"/>
     <wire from="(230,230)" to="(360,230)"/>
     <wire from="(230,440)" to="(360,440)"/>
     <wire from="(250,300)" to="(250,340)"/>
+    <wire from="(250,300)" to="(380,300)"/>
+    <wire from="(250,340)" to="(250,480)"/>
     <wire from="(250,340)" to="(350,340)"/>
-    <wire from="(380,190)" to="(380,210)"/>
+    <wire from="(250,480)" to="(380,480)"/>
+    <wire from="(380,180)" to="(380,210)"/>
+    <wire from="(380,250)" to="(380,300)"/>
     <wire from="(380,340)" to="(380,420)"/>
+    <wire from="(380,460)" to="(380,480)"/>
     <wire from="(400,230)" to="(470,230)"/>
     <wire from="(400,440)" to="(470,440)"/>
     <wire from="(470,230)" to="(470,330)"/>
     <wire from="(470,330)" to="(470,440)"/>
-    <wire from="(470,330)" to="(520,330)"/>
-    <wire from="(520,330)" to="(560,330)"/>
+    <wire from="(470,330)" to="(560,330)"/>
   </circuit>
   <circuit name="get_info">
     <a name="appearance" val="logisim_evolution"/>
@@ -3026,8 +3036,6 @@
     <comp loc="(1380,2100)" name="shift_right"/>
     <comp loc="(1440,1890)" name="summator_24bit"/>
     <comp loc="(1440,260)" name="shift_right"/>
-    <comp loc="(1440,270)" name="shift_right"/>
-    <comp loc="(1450,270)" name="shift_right"/>
     <comp loc="(1450,480)" name="substructor_24bit"/>
     <comp loc="(1500,1690)" name="if_expression"/>
     <comp loc="(1710,1890)" name="shift_right"/>
