@@ -4563,7 +4563,11 @@
       <a name="value" val="0x0"/>
       <a name="width" val="24"/>
     </comp>
-    <comp lib="0" loc="(1460,440)" name="Pin">
+    <comp lib="0" loc="(1060,770)" name="Constant">
+      <a name="value" val="0x8000"/>
+      <a name="width" val="24"/>
+    </comp>
+    <comp lib="0" loc="(1510,440)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="IO_OUT"/>
@@ -4608,18 +4612,20 @@
       <a name="fanout" val="3"/>
       <a name="incoming" val="16"/>
     </comp>
-    <comp lib="1" loc="(1460,440)" name="OR Gate">
-      <a name="inputs" val="4"/>
+    <comp lib="1" loc="(1510,440)" name="OR Gate">
+      <a name="inputs" val="5"/>
       <a name="width" val="24"/>
     </comp>
     <comp lib="1" loc="(800,790)" name="AND Gate">
       <a name="negate0" val="true"/>
     </comp>
     <comp lib="1" loc="(900,490)" name="OR Gate"/>
+    <comp lib="1" loc="(960,790)" name="AND Gate"/>
     <comp loc="(1270,250)" name="if_expression"/>
     <comp loc="(1270,350)" name="if_expression"/>
     <comp loc="(1270,470)" name="if_expression"/>
     <comp loc="(1270,630)" name="if_expression"/>
+    <comp loc="(1280,770)" name="if_expression"/>
     <comp loc="(710,270)" name="is_nan"/>
     <comp loc="(710,370)" name="is_pinf"/>
     <comp loc="(710,490)" name="is_ninf"/>
@@ -4628,13 +4634,16 @@
     <wire from="(1050,160)" to="(1050,250)"/>
     <wire from="(1270,250)" to="(1400,250)"/>
     <wire from="(1270,350)" to="(1270,430)"/>
-    <wire from="(1270,430)" to="(1410,430)"/>
-    <wire from="(1270,450)" to="(1270,470)"/>
-    <wire from="(1270,450)" to="(1410,450)"/>
+    <wire from="(1270,430)" to="(1460,430)"/>
+    <wire from="(1270,440)" to="(1270,470)"/>
+    <wire from="(1270,440)" to="(1460,440)"/>
     <wire from="(1270,630)" to="(1410,630)"/>
+    <wire from="(1280,770)" to="(1460,770)"/>
     <wire from="(1400,250)" to="(1400,420)"/>
-    <wire from="(1400,420)" to="(1410,420)"/>
-    <wire from="(1410,460)" to="(1410,630)"/>
+    <wire from="(1400,420)" to="(1460,420)"/>
+    <wire from="(1410,450)" to="(1410,630)"/>
+    <wire from="(1410,450)" to="(1460,450)"/>
+    <wire from="(1460,460)" to="(1460,770)"/>
     <wire from="(320,390)" to="(390,390)"/>
     <wire from="(320,430)" to="(360,430)"/>
     <wire from="(330,340)" to="(450,340)"/>
@@ -4645,7 +4654,7 @@
     <wire from="(360,430)" to="(360,530)"/>
     <wire from="(360,530)" to="(360,810)"/>
     <wire from="(360,530)" to="(490,530)"/>
-    <wire from="(360,810)" to="(750,810)"/>
+    <wire from="(360,810)" to="(720,810)"/>
     <wire from="(390,290)" to="(390,390)"/>
     <wire from="(390,290)" to="(440,290)"/>
     <wire from="(390,390)" to="(390,510)"/>
@@ -4671,13 +4680,21 @@
     <wire from="(710,470)" to="(710,490)"/>
     <wire from="(710,470)" to="(850,470)"/>
     <wire from="(710,650)" to="(740,650)"/>
-    <wire from="(740,650)" to="(1050,650)"/>
+    <wire from="(720,810)" to="(720,860)"/>
+    <wire from="(720,810)" to="(750,810)"/>
+    <wire from="(720,860)" to="(910,860)"/>
     <wire from="(740,650)" to="(740,770)"/>
+    <wire from="(740,650)" to="(880,650)"/>
     <wire from="(750,160)" to="(1050,160)"/>
     <wire from="(800,790)" to="(840,790)"/>
     <wire from="(840,510)" to="(840,790)"/>
     <wire from="(840,510)" to="(850,510)"/>
+    <wire from="(880,650)" to="(1050,650)"/>
+    <wire from="(880,650)" to="(880,770)"/>
+    <wire from="(880,770)" to="(910,770)"/>
     <wire from="(900,490)" to="(1050,490)"/>
+    <wire from="(910,810)" to="(910,860)"/>
+    <wire from="(960,790)" to="(1060,790)"/>
   </circuit>
   <circuit name="from_16_24">
     <a name="appearance" val="logisim_evolution"/>
