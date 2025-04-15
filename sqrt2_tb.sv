@@ -1,4 +1,4 @@
-`include "sqrt2.sv"
+include "sqrt2.sv"
 
 // put your code here
 module sqrt2_tb; 
