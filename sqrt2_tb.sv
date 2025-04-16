@@ -1,6 +1,5 @@
 `include "sqrt2.sv"
 
-// put your code here
 module sqrt2_tb; 
 	reg CLK = 0;
     reg[15:0] IO_DATA;
