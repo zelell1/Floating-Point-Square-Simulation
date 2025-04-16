@@ -28,9 +28,8 @@ module sqrt2_tb;
 
 	initial begin
 		fd = $fopen("sqrt2_log.csv", "w");
-		$fstrobe(fd, "SQRT2 LOG START:");
 		
-		//zero
+		$fstrobe(fd, "\n==================== [ POSITIVE ZERO ] =============================");
 		#0
 		ENABLE = 0;
 		IO_DATA = 16'h0000;
@@ -39,7 +38,7 @@ module sqrt2_tb;
         IO_DATA = 16'hzzzz;	
 		#22;
 
-		//neg zero
+		$fstrobe(fd, "\n==================== [ NEGATIVE ZERO ] =============================");
 		#0
 		ENABLE = 0;
 		IO_DATA = 16'h8000;
@@ -48,7 +47,7 @@ module sqrt2_tb;
         IO_DATA = 16'hzzzz;	
 		#22;
 
-		// neg
+		$fstrobe(fd, "\n==================== [ NEGATIVE NUMBER ] =============================");
 		#0
 		ENABLE = 0;
 		IO_DATA = 16'h8bbb;
@@ -57,7 +56,7 @@ module sqrt2_tb;
         IO_DATA = 16'hzzzz;	
 		#22;
 
-		//-inf
+		$fstrobe(fd, "\n==================== [ NINF ] =============================");
 		#0
 		ENABLE = 0;
 		IO_DATA = 16'hfc00;
@@ -66,7 +65,7 @@ module sqrt2_tb;
         IO_DATA = 16'hzzzz;	
 		#22;
 
-		//nan
+		$fstrobe(fd, "\n==================== [ NAN ] =============================");
 		#0
 		ENABLE = 0;
 		IO_DATA = 16'h7d80;
@@ -75,7 +74,7 @@ module sqrt2_tb;
         IO_DATA = 16'hzzzz;	
 		#22;
 
-		//+inf 
+		$fstrobe(fd, "\n==================== [ PINF ] =============================");
 		#0
 		ENABLE = 0;
 		IO_DATA = 16'h7c00;
@@ -84,7 +83,7 @@ module sqrt2_tb;
         IO_DATA = 16'hzzzz;	
 		#22;
 
-		//normal 
+		$fstrobe(fd, "\n==================== [ NORMAL ] =============================");
 		#0
 		ENABLE = 0;
 		IO_DATA = 16'h6666;
@@ -157,7 +156,63 @@ module sqrt2_tb;
         IO_DATA = 16'hzzzz;	
 		#22;
 
-		//denormal
+		#0
+		ENABLE = 0;
+		IO_DATA = 16'h0c20;
+		ENABLE = 1;
+        #2;
+        IO_DATA = 16'hzzzz;	
+		#22;
+
+		#0
+		ENABLE = 0;
+		IO_DATA = 16'h14ff;
+		ENABLE = 1;
+        #2;
+        IO_DATA = 16'hzzzz;	
+		#22;
+
+		#0
+		ENABLE = 0;
+		IO_DATA = 16'h1b24;
+		ENABLE = 1;
+        #2;
+        IO_DATA = 16'hzzzz;	
+		#22;
+
+		#0
+		ENABLE = 0;
+		IO_DATA = 16'h2cce;
+		ENABLE = 1;
+        #2;
+        IO_DATA = 16'hzzzz;	
+		#22;
+
+		#0
+		ENABLE = 0;
+		IO_DATA = 16'h357f;
+		ENABLE = 1;
+        #2;
+        IO_DATA = 16'hzzzz;	
+		#22;
+
+		#0
+		ENABLE = 0;
+		IO_DATA = 16'h3eb6;
+		ENABLE = 1;
+        #2;
+        IO_DATA = 16'hzzzz;	
+		#22;
+
+		#0
+		ENABLE = 0;
+		IO_DATA = 16'h4707;
+		ENABLE = 1;
+        #2;
+        IO_DATA = 16'hzzzz;	
+		#22;
+
+		$fstrobe(fd, "\n==================== [ DENORMAL ] =============================");
 
 		#0
 		ENABLE = 0;
@@ -255,7 +310,14 @@ module sqrt2_tb;
         IO_DATA = 16'hzzzz;	
 		#22;
 
-		$fstrobe(fd, "SQRT2 LOG END.");
+		#0
+		ENABLE = 0;
+		IO_DATA = 16'h0099;
+		ENABLE = 1;
+        #2;
+        IO_DATA = 16'hzzzz;	
+		#22;
+
         $fclose(fd);
         $finish;
 	end
